@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 });
 
 // Router
-app.use('/user', userRouter);
+app.use('/api/user', userRouter);
 
 //DB Connection
 mongoose.connect(config.database.uri, {
