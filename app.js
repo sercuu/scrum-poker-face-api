@@ -1,14 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const userRouter = require('./routes/user.routes');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const userRouter = require("./routes/user.routes");
 
 const app = express();
 // .env
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
-const env = process.env.NODE_ENV || 'development';
-const config = require('./config')[env];
+const env = process.env.NODE_ENV || "development";
+const config = require("./config")[env];
 
 //Parsing Request Body
 app.use(bodyParser.json());
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 });
 
 // Router
-app.use('/api/user', userRouter);
+app.use("/api/user", userRouter);
 
 //DB Connection
 mongoose.connect(config.database.uri, {
@@ -31,9 +31,9 @@ mongoose.connect(config.database.uri, {
 
 var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('DB Connected!!..');
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function() {
+  console.log("DB Connected!!..");
 });
 
 // listener

@@ -1,10 +1,11 @@
-const express = require('express');
-const User = require('../models/user.model');
-const encrypt = require('../helpers/encrypt');
+const express = require("express");
+const User = require("../models/user.model");
+const encrypt = require("../helpers/encrypt");
 
 const router = express.Router();
-const userConroller = require('../controllers/user.controller');
+const userConroller = require("../controllers/user.controller");
 
-router.post('/register', userConroller.create);
+router.post("/register", userConroller.create);
+router.post("/login", userConroller.login);
 
 module.exports = router;

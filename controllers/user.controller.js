@@ -1,5 +1,5 @@
-const User = require('../models/user.model');
-const encrypt = require('../helpers/encrypt');
+const User = require("../models/user.model");
+const encrypt = require("../helpers/encrypt");
 
 module.exports.create = async (req, res) => {
   try {
@@ -11,10 +11,21 @@ module.exports.create = async (req, res) => {
       if (err) return console.log(err);
       res.json(201, {
         status: 201,
-        success: 'OK',
+        success: "OK",
         response
       });
     });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
+
+module.exports.login = async (req, res) => {
+  console.log("sasss");
+  console.log(req, res, "reqres22s");
+
+  try {
+    console.log(req, res, "reqress");
   } catch (error) {
     res.status(400).send(error);
   }
